@@ -1,11 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.Data.SqlClient;
+using System;
 
 namespace MVC_ComicBooksCharacters.Models
 {
@@ -18,8 +15,9 @@ namespace MVC_ComicBooksCharacters.Models
         
         public ComicBookContext()
         {
-
         }
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
           
@@ -31,6 +29,27 @@ namespace MVC_ComicBooksCharacters.Models
             builder.UseSqlServer(conn);
             base.OnConfiguring(builder);
         }
+        
+        //protected void BindData()
+        //{
+        //    string path = Path.Combine(Directory.GetCurrentDirectory(), "App_Data");
+        //    string conn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDBFilename="
+        //        + path + "\\comicbooks.mdf; Trusted_Connection=true;MultipleActiveResultSets=true";
+
+        //    SqlConnection cn = new SqlConnection(conn);
+        //        cn.Open();
+        //        SqlCommand cmd = new SqlCommand("Select ComicBookID,ComicBookTitle FROM ComicBooks", cn);
+        //        DataSet dt = new DataSet();
+                
+        //        SqlDataAdapter ad = new SqlDataAdapter(cmd);
+
+        //        ad.Fill(dt);
+        //        MyGridView.DataSource = dt;
+        //        MyGridView.DataBind();
+        //        cn.Close();
+        //}
+
     }
 
 }
+

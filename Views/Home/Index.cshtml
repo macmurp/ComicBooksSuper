@@ -1,6 +1,23 @@
 ﻿@model MVC_ComicBooksCharacters.Models.ComicBookContext
- 
-*@
 @{
+    ViewBag.Title = "Comic Books";
 }
-comic book character list goes here
+
+
+<div class="text-center text-dark">
+    <h1 class="display-4 text-dark">Comic Books:</h1>
+</div>
+<div class="row justify-content-center">
+    <div class="col-auto">
+        <table class="table-bordered table-responsive text-dark" width="600">
+            @foreach (ComicBook c in Model.ComicBooks)
+            {
+                <tr>
+                    <td width="600">
+                        <b>Comic Title:</b> @c.ComicBookTitle <br />
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

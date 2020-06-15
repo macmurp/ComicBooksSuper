@@ -1,16 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Data;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using MVC_ComicBooksCharacters.Models;
 
 namespace MVC_ComicBooksCharacters.Controllers
 {
     public class HomeController : Controller
     {
-        public HomeController()
+        private ComicBookContext _ctx = null;
+        public HomeController(ComicBookContext ctx)
         {
+            _ctx = ctx;
+
             //ComicBookContext cbtxt = new ComicBookContext();
             //cbtxt.Database.EnsureCreated();
             //ComicBook c = new ComicBook { ComicBookTitle = "Steven Universe" };
@@ -18,10 +21,13 @@ namespace MVC_ComicBooksCharacters.Controllers
             //cbtxt.SaveChanges();
 
         }
+
         // GET: /<controller>/
         public IActionResult Index()
         {
-            return View();
+            return View(_ctx);
         }
+
     }
+
 }
