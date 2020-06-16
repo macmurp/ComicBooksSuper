@@ -11,10 +11,11 @@
     <div class="col-auto">
         <table class="table-bordered table-responsive text-dark" width="600">
             @foreach (ComicBook c in Model.ComicBooks)
+                <!-- loop to list comicbooks -->
             {
                 <tr>
                     <td width="600">
-                        <b>Comic Title:</b> @c.ComicBookTitle <br />
+                        <b>Title:</b> @c.ComicBookTitle <br />
                     </td>
                 </tr>
             }

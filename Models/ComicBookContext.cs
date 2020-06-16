@@ -9,17 +9,22 @@ namespace MVC_ComicBooksCharacters.Models
     public class ComicBookContext : DbContext
     {
         public DbSet<ComicBook> ComicBooks { get; set; }
+        //db list of type comicbook
 
         public ComicBookContext(DbContextOptions<ComicBookContext> options) : base(options)
-        { }
+        {
+        
+        }
         
         public ComicBookContext()
         {
+
         }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
+            //connection path
           
             string path = Path.Combine(Directory.GetCurrentDirectory(), "App_Data");
             string conn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDBFilename=" 
@@ -29,7 +34,8 @@ namespace MVC_ComicBooksCharacters.Models
             builder.UseSqlServer(conn);
             base.OnConfiguring(builder);
         }
-        
+        //previous attempt at using gridview left to show process
+
         //protected void BindData()
         //{
         //    string path = Path.Combine(Directory.GetCurrentDirectory(), "App_Data");

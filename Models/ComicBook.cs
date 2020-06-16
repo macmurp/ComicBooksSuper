@@ -7,6 +7,7 @@ namespace MVC_ComicBooksCharacters.Models
 {
     public class ComicBook
     {
+        //base of comicbook that reflects same structure as db
         public int ComicBookID { get; set; }
         public string ComicBookTitle { get; set; }
     }
